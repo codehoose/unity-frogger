@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Frogger.cs" />
     <Compile Include="Assets\Scripts\KillScript.cs" />
     <Compile Include="Assets\Scripts\RowControl.cs" />
+    <Compile Include="Assets\Scripts\RowControllerReference.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>H:/Repositories/github-repos/frogger-for-unity/Frogger/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

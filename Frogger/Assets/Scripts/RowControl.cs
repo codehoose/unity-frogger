@@ -19,10 +19,13 @@ public class RowControl : MonoBehaviour
         startPos = rowObjects[0].transform.position.x;
         leading = rowObjects[0];
         caboose = rowObjects[1];
-        if (startPos > 0)
-        {
-            goingLeft = false;
-        }
+
+        goingLeft = startPos < caboose.transform.position.x;
+
+        //if (startPos > 0)
+        //{
+        //    goingLeft = false;
+        //}
     }
 
     void Update()
