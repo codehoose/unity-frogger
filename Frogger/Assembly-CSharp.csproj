@@ -68,9 +68,12 @@
     <Compile Include="Assets\Scripts\IAction.cs" />
     <Compile Include="Assets\Scripts\KillScript.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\BulldozerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\LogRowOneSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\LogRowTwoSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\PurpleCarSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\RacerSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\TankerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\TurtleRowOneSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\YellowBuggySpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Vehicle.cs" />
     <Compile Include="Assets\Scripts\VehicleSpawnPoint.cs" />
