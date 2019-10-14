@@ -62,9 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Actions\SpawnVehicleAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\WaitAction.cs" />
     <Compile Include="Assets\Scripts\Frogger.cs" />
+    <Compile Include="Assets\Scripts\IAction.cs" />
     <Compile Include="Assets\Scripts\KillScript.cs" />
-    <Compile Include="Assets\Scripts\RowControl.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\BulldozerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\PurpleCarSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\RacerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\TankerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpawnPoints\YellowBuggySpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Vehicle.cs" />
+    <Compile Include="Assets\Scripts\VehicleSpawnPoint.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>H:/Repositories/github-repos/frogger-for-unity/Frogger/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

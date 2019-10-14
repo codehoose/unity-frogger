@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1169945548766292950}
   - component: {fileID: 97537218093254578}
   - component: {fileID: 4017679450734410265}
+  - component: {fileID: 672388917331069870}
   m_Layer: 0
   m_Name: PurpleSportscar
   m_TagString: vehicle
@@ -107,3 +108,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 16}
   m_EdgeRadius: 0
+--- !u!114 &672388917331069870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784863988837347797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1e2b8aba2fc2d46a14e308c524e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1990241394235662924}
   - component: {fileID: 8153457514622430402}
   - component: {fileID: 5741073890094369906}
+  - component: {fileID: 3601320450403496315}
   m_Layer: 0
   m_Name: WhiteRacecar
   m_TagString: vehicle
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4049353521190758113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -416.2368, y: -77.810875, z: 0}
+  m_LocalPosition: {x: -120, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,3 +108,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 16}
   m_EdgeRadius: 0
+--- !u!114 &3601320450403496315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049353521190758113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1e2b8aba2fc2d46a14e308c524e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
