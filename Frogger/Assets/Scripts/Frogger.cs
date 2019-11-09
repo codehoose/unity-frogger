@@ -6,7 +6,9 @@ public class Frogger : MonoBehaviour
     private static readonly float COOLDOWN = 0.25f;
 
     private bool _isCoolingDown = false;
+    private bool _inRiver = false;
     private Vector3 initialPosition;
+    private float _horizontalSpeed = 0f;
 
     public GameObject frogSprite;
     public Animator frogAnimation;
@@ -14,7 +16,7 @@ public class Frogger : MonoBehaviour
     public GameObject deathPrefab;
 
     public float _deathCooldown = 0f;
-
+    
     void Start()
     {
         initialPosition = transform.position;
@@ -22,18 +24,18 @@ public class Frogger : MonoBehaviour
     
     void Update()
     {
-        if(_deathCooldown > 0)
+        if (_deathCooldown > 0)
         {
             _deathCooldown = _deathCooldown - Time.deltaTime;
             if (_deathCooldown <= 0)
             {
-                // TODO: RESET ROTATIONS
-                transform.position = initialPosition;
-                frogSprite.SetActive(true);
+                ResetFrog();
                 _deathCooldown = 0;
             }
             return;
         }
+
+        transform.position += new Vector3(_horizontalSpeed * Time.deltaTime, 0);
 
         if (_isCoolingDown)
         {
@@ -48,6 +50,7 @@ public class Frogger : MonoBehaviour
             if (vert > 0)
             {
                 frogSprite.transform.rotation = Quaternion.identity;
+                _horizontalSpeed = 0f;
             }
             else
             {
@@ -79,6 +82,12 @@ public class Frogger : MonoBehaviour
 
         transform.position = end;
         _isCoolingDown = false;
+
+        // If the player lands in the river they are dead
+        if (_horizontalSpeed == 0 && _inRiver)
+        {
+            KillFrog();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -88,9 +97,51 @@ public class Frogger : MonoBehaviour
             return;
         }
 
+        switch(col.tag)
+        {
+            case "vehicle":
+                KillFrog();
+                break;
+            case "floating":
+                _horizontalSpeed = col.GetComponent<Vehicle>().Speed;
+                break;
+            case "river":
+                _inRiver = true;
+                break;
+            case "Finish":
+                FrogIsHome(col.gameObject);
+                break;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        switch (col.tag)
+        {
+            case "river":
+                _inRiver = false;
+                break;
+        }
+    }
+
+    void KillFrog()
+    {
         _deathCooldown = 1f;
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
-
         frogSprite.SetActive(false);
+    }
+
+    void FrogIsHome(GameObject go)
+    {
+        frogSprite.SetActive(false);
+        _deathCooldown = 1f;
+        go.GetComponent<Goal>().ShowFrog(true);
+    }
+
+    void ResetFrog()
+    {
+        frogSprite.transform.rotation = Quaternion.identity;
+        transform.position = initialPosition;
+        frogSprite.SetActive(true);
     }
 }
