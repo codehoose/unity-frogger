@@ -146,9 +146,17 @@ public class Frogger : MonoBehaviour
 
     void FrogIsHome(GameObject go)
     {
-        frogSprite.SetActive(false);
-        _deathCooldown = 1f;
-        go.GetComponent<Goal>().ShowFrog(true);
+        var goal = go.GetComponent<Goal>();
+        if (goal.GoalReached)
+        {
+            KillFrog();
+        }
+        else
+        {
+            frogSprite.SetActive(false);
+            _deathCooldown = 1f;
+            goal.ShowFrog(true);
+        }
     }
 
     void ResetFrog()
