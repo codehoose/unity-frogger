@@ -82,11 +82,19 @@ public class Frogger : MonoBehaviour
 
         transform.position = end;
         _isCoolingDown = false;
-
+        
         // If the player lands in the river they are dead
         if (_horizontalSpeed == 0 && _inRiver)
         {
             KillFrog();
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "floating")
+        {
+            _horizontalSpeed = col.GetComponent<Vehicle>().Speed;
         }
     }
 
@@ -100,6 +108,7 @@ public class Frogger : MonoBehaviour
         switch(col.tag)
         {
             case "vehicle":
+            case "killzone":
                 KillFrog();
                 break;
             case "floating":
@@ -120,6 +129,10 @@ public class Frogger : MonoBehaviour
         {
             case "river":
                 _inRiver = false;
+                _horizontalSpeed = 0;
+                break;
+            case "floating":
+                _horizontalSpeed = 0;
                 break;
         }
     }
