@@ -21,12 +21,21 @@ public abstract class VehicleSpawnPoint : MonoBehaviour
     IEnumerator Start()
     {
         var index = 0;
-        while (_running)
+        while (_running && Actions.Count > 0)
         {
             var action = Actions[index];
             yield return action.Execute();
             index++;
             index %= Actions.Count;
+        }
+    }
+
+    public void GameOver()
+    {
+        _running = false;
+        foreach (var go in _pool)
+        {
+            Destroy(go);
         }
     }
 

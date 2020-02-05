@@ -65,9 +65,11 @@
     <Compile Include="Assets\Scripts\Actions\SpawnVehicleAction.cs" />
     <Compile Include="Assets\Scripts\Actions\WaitAction.cs" />
     <Compile Include="Assets\Scripts\Frogger.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\IAction.cs" />
     <Compile Include="Assets\Scripts\KillScript.cs" />
+    <Compile Include="Assets\Scripts\ScoreValues.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\BulldozerSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\LogRowOneSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\LogRowTwoSpawnPoint.cs" />
@@ -76,8 +78,27 @@
     <Compile Include="Assets\Scripts\SpawnPoints\TankerSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\TurtleRowOneSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\SpawnPoints\YellowBuggySpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\Vehicle.cs" />
     <Compile Include="Assets\Scripts\VehicleSpawnPoint.cs" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>H:/Repositories/github-repos/frogger-for-unity/Frogger/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

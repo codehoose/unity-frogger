@@ -14,6 +14,7 @@ public class Frogger : MonoBehaviour
     public Animator frogAnimation;
 
     public GameObject deathPrefab;
+    public GameController gameController;
 
     public float _deathCooldown = 0f;
     
@@ -37,7 +38,7 @@ public class Frogger : MonoBehaviour
 
         transform.position += new Vector3(_horizontalSpeed * Time.deltaTime, 0);
 
-        if (_isCoolingDown)
+        if (_isCoolingDown || gameController.GameOver)
         {
             return;
         }
@@ -87,6 +88,10 @@ public class Frogger : MonoBehaviour
         if (_horizontalSpeed == 0 && _inRiver)
         {
             KillFrog();
+        }
+        else
+        {
+            gameController.IncrementScore(ScoreValues.Step);
         }
     }
 
@@ -140,6 +145,7 @@ public class Frogger : MonoBehaviour
     void KillFrog()
     {
         _deathCooldown = 1f;
+        gameController.DecrementLives();
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
         frogSprite.SetActive(false);
     }
@@ -147,7 +153,7 @@ public class Frogger : MonoBehaviour
     void FrogIsHome(GameObject go)
     {
         var goal = go.GetComponent<Goal>();
-        if (goal.GoalReached)
+        if (goal.GoalOccupied)
         {
             KillFrog();
         }
@@ -155,14 +161,18 @@ public class Frogger : MonoBehaviour
         {
             frogSprite.SetActive(false);
             _deathCooldown = 1f;
+            gameController.IncrementScore(ScoreValues.Home);
             goal.ShowFrog(true);
         }
     }
 
     void ResetFrog()
     {
-        frogSprite.transform.rotation = Quaternion.identity;
-        transform.position = initialPosition;
-        frogSprite.SetActive(true);
+        if (!gameController.GameOver)
+        {
+            frogSprite.transform.rotation = Quaternion.identity;
+            transform.position = initialPosition;
+            frogSprite.SetActive(true);
+        }
     }
 }
