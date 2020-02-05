@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -6,8 +8,11 @@ public class GameController : MonoBehaviour
     private int _hiScore = 4630;
     private int _lives = 3;
     private bool _gameOver;
+    private int _goalsOccupied;
 
     public VehicleSpawnPoint[] points;
+
+    public Goal[] goals;
 
     public int Score { get { return _score; } }
 
@@ -40,6 +45,32 @@ public class GameController : MonoBehaviour
             }
             _gameOver = true;
             _lives = 0;
+        }
+    }
+
+    void Awake()
+    {
+        _score = PlayerPrefs.GetInt("score", 0);
+    }
+
+    void Update()
+    {
+        var newGoals = goals.Count(g => g.GoalOccupied);
+        if (newGoals != _goalsOccupied)
+        {
+            if (newGoals == 2)
+            {
+                AudioController.Instance.PlayEndOfRound(() =>
+                {
+                    PlayerPrefs.SetInt("score", _score);
+                    SceneManager.LoadScene("Game");
+                });
+            }
+            else
+            {
+                AudioController.Instance.PlayHome();
+            }
+            _goalsOccupied = newGoals;
         }
     }
 }

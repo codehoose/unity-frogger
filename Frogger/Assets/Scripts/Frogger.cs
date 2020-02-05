@@ -57,10 +57,12 @@ public class Frogger : MonoBehaviour
             {
                 frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Sign(horiz) * 180));
             }
+            AudioController.Instance.PlayLeap();
             StartCoroutine(Move(new Vector3(0, Mathf.Sign(vert) * 16, 0)));
         }
         else if (Mathf.Abs(horiz) > 0)
         {
+            AudioController.Instance.PlayLeap();
             frogSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Sign(horiz) * -90));
             StartCoroutine(Move(new Vector3(Mathf.Sign(horiz) * 16, 0, 0)));
         }
@@ -87,7 +89,7 @@ public class Frogger : MonoBehaviour
         // If the player lands in the river they are dead
         if (_horizontalSpeed == 0 && _inRiver)
         {
-            KillFrog();
+            KillFrog(_inRiver);
         }
         else
         {
@@ -142,8 +144,16 @@ public class Frogger : MonoBehaviour
         }
     }
 
-    void KillFrog()
+    void KillFrog(bool inRiver = false)
     {
+        if (inRiver)
+        {
+            AudioController.Instance.PlayDrown();
+        }
+        else
+        {
+            AudioController.Instance.PlaySquish();
+        }
         _deathCooldown = 1f;
         gameController.DecrementLives();
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
