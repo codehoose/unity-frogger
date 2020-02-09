@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class UIController : MonoBehaviour
         if (gameController.GameOver)
         {
             gameOver.gameObject.SetActive(true);
+            StartCoroutine(WaitAndLoadAttactMode());
         }
     }
 
@@ -48,5 +51,11 @@ public class UIController : MonoBehaviour
         {
             Instantiate(livesIndicator, panel);
         }
+    }
+
+    IEnumerator WaitAndLoadAttactMode()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("AttractMode");
     }
 }

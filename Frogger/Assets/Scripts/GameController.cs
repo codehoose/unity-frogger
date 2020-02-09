@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
         var newGoals = goals.Count(g => g.GoalOccupied);
         if (newGoals != _goalsOccupied)
         {
-            if (newGoals == 2)
+            if (newGoals == 5)
             {
                 AudioController.Instance.PlayEndOfRound(() =>
                 {

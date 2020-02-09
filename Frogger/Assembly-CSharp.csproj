@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Actions\SpawnVehicleAction.cs" />
     <Compile Include="Assets\Scripts\Actions\WaitAction.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
+    <Compile Include="Assets\Scripts\BootStuff\AttractMode.cs" />
+    <Compile Include="Assets\Scripts\BootStuff\FrontWipe.cs" />
     <Compile Include="Assets\Scripts\Frogger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
